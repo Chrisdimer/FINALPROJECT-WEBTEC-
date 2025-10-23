@@ -9,7 +9,6 @@ body {
 /* Full page hero section */
 .hero {
   height: 100vh;
-  background: url('https://www.tastingtable.com/img/gallery/ichiran-the-japanese-ramen-restaurant-that-is-every-introverts-dream/l-intro-1680800206.jpg') center/cover no-repeat;
   position: relative;
 }
 
@@ -351,3 +350,9 @@ footer {
     justify-content: center;
   }
 }
+
+
+/*  HOMEPAGE AREA */
+
+
+

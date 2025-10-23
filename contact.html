@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ramen Heaven — Contact & Reservations</title>
+  <meta name="description" content="Contact Ramen Heaven for reservations, catering, feedback, or questions. Friendly ramen-themed contact page with reservation form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Nunito:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#FFFAF6;
+      --accent:#f37209;
+      --dark:#2B2B2B;
+      --muted:#6B6B6B;
+      --card:#FFFFFF;
+      --shadow:0 6px 24px rgba(43,43,43,0.12);
+      font-family:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background-image: url(image/ramen3.jpg)  ;
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      padding:32px;
+      width: max-content;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:760px;
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    /* Info section */
+    .info{
+      padding:28px;
+      border-radius:18px;
+      background-color: orangered;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .brand{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#FFB58A);
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:700;font-family:Montserrat;
+      border:3px solid rgba(255,255,255,0.18);
+    }
+    h1{margin:0;font-size:26px}
+    p.lead{margin-top:8px;color:var(--muted)}
+
+    .details{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .chip{background:var(--card);padding:12px;border-radius:12px;min-width:140px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    .chip h4{margin:0;font-size:14px}
+    .chip p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* Form card */
+    .card{
+      background:var(--card);
+      padding:22px;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:var(--muted)}
+    input[type=text],input[type=email],input[type=tel],select,textarea,input[type=date],input[type=time]{
+      width:100%;padding:12px;border-radius:10px;
+      border:1px solid #eee;font-size:15px;font-family:inherit;outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row .col{flex:1;min-width:200px}
+    .submit{background:var(--accent);color:white;padding:12px 14px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+    .submit[disabled]{opacity:0.6;cursor:not-allowed}
+    .small{font-size:13px;color:var(--muted)}
+    footer.note{margin-top:10px;font-size:13px;color:var(--muted);text-align:center}
+
+    /* success toast */
+    .toast{
+      position:fixed;right:22px;bottom:22px;background:#FFFAF0;border-left:6px solid var(--accent);
+      padding:14px 18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      display:none;z-index:60;
+    }
+
+    /* Decorative ramen bowl */
+    .bowl-deco{position:absolute;right:-60px;bottom:-60px;transform:rotate(-12deg);opacity:0.85}
+    .bowl{width:280px;height:160px;border-radius:170px 170px 40px 40px/120px 120px 40px 40px;background:linear-gradient(180deg,#ad4e1b,#FFEFE7);box-shadow:inset 0 -14px 30px rgba(0,0,0,0.06);position:relative}
+    .steam{position:absolute;left:50px;top:-60px}
+    .steam span{display:block;width:22px;height:70px;border-radius:50%;border:3px solid rgba(255,255,255,0.6);opacity:0.85;margin-left:10px;animation:steam 4s linear infinite}
+    .steam span:nth-child(2){animation-delay:0.6s;margin-left:30px}
+    .steam span:nth-child(3){animation-delay:1.2s;margin-left:50px}
+    @keyframes steam{0%{transform:translateY(0) scaleX(1);opacity:0.6}50%{transform:translateY(-30px) scaleX(1.2);opacity:0.9}100%{transform:translateY(-70px) scaleX(1);opacity:0}}
+
+    @media (max-width:600px){
+      body{padding:20px}
+      .logo{width:54px;height:54px;font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Info section -->
+    <section class="info" aria-labelledby="contact-heading">
+      <div class="brand">
+        <div class="logo">RH</div>
+        <div>
+          <h1 id="contact-heading">Ramen Heaven — Contact & Reservations</h1>
+          <p class="lead" style="color: white;">Questions, reservations, catering or collabs? Drop us a message and we’ll get back within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="details" role="list">
+        <div class="chip" role="listitem">
+          <h4>Hours</h4>
+          <p>Mon–Sun · 11:00 AM — 10:00 PM</p>
+        </div>
+        <div class="chip" role="listitem">
+          <h4>Address</h4>
+          <p>12 Noodle Lane, Little Tokyo</p>
+        </div>
+        <div class="chip" role="listitem">
+          <h4>Phone</h4>
+          <p>+63 912 345 6789</p>
+        </div>
+      </div>
+
+      <div class="bowl-deco" aria-hidden="true">
+        <div class="bowl">
+          <div class="steam">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <aside class="card" aria-labelledby="form-heading">
+      <h2 id="form-heading" style="margin:0 0 6px 0;">Send us a message</h2>
+      <p class="small">Use this form for reservations, feedback, or press inquiries.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="row">
+          <div class="col">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Kyle Dejos" required />
+          </div>
+          <div class="col">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+63 9xx xxx xxxx" />
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@gmail.com" required />
+
+        <div class="row">
+          <div class="col">
+            <label for="date">Preferred date</label>
+            <input id="date" name="date" type="date" />
+          </div>
+          <div class="col">
+            <label for="time">Preferred time</label>
+            <input id="time" name="time" type="time" />
+          </div>
+        </div>
+
+        <label for="party">Party size</label>
+        <select id="party" name="party">
+          <option value="1">1 — Solo slurper</option>
+          <option value="2">2 — Date</option>
+          <option value="3">3 — Small group</option>
+          <option value="4">4 — Family</option>
+          <option value="5+">5+ — Big party</option>
+        </select>
+
+        <label for="spice">Spice level</label>
+        <select id="spice" name="spice">
+          <option>None</option>
+          <option>Mild</option>
+          <option selected>Normal</option>
+          <option>Hot</option>
+          <option>Volcano</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about dietary restrictions, special requests, or event details..."></textarea>
+
+        <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:8px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="subscribe" name="subscribe" type="checkbox" />
+            <label for="subscribe" class="small">Subscribe to noodle news</label>
+          </div>
+          <button type="submit" class="submit">Send message</button>
+        </div>
+
+        <p class="small" style="margin-top:8px">By sending you agree we may contact you about your request. For urgent matters, call <a href="tel:+639123456789">+63 912 345 6789</a>.</p>
+      </form>
+
+      <footer class="note">We do not accept bookings through this form for the same day. Walk-ins welcome.</footer>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <strong>Thanks — we received your message!</strong>
+    <div class="small">We'll reply within 24 hours. — Ramen Heaven</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(){
+      toast.style.display='block';
+      setTimeout(()=>{toast.style.display='none'},4500);
+    }
+
+    function validateEmail(email){
+      return /[^\s@]+@[^\s@]+\.[^\s@]+/.test(email);
+    }
+
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const payload = Object.fromEntries(data.entries());
+      if(!payload.name||!payload.email){
+        alert('Please enter your name and email.');
+        return;
+      }
+      if(!validateEmail(payload.email)){
+        alert('Please enter a valid email address.');
+        return;
+      }
+      showToast();
+      form.reset();
+      localStorage.setItem('lastContact',JSON.stringify({...payload,time:Date.now()}));
+    });
+  </script>
+</body>
+</html>
