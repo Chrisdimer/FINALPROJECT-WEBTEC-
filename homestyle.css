@@ -68,6 +68,11 @@ nav a:hover {
   color: #333;
 }
 
+.hero-image
+{
+  position: center;
+}
+
 .btn {
   display: inline-block;
   padding: 12px 30px;

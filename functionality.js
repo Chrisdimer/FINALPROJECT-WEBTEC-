@@ -1,5 +1,4 @@
-// cart.js - COMPATIBLE version that works with product-details.html
-console.log("Cart.js loaded"); // Debug line
+
 
 // Products data
 const products = [
@@ -210,12 +209,112 @@ function clearCart() {
   }
 }
 
+// CHECKOUT FUNCTIONALITY
+function checkout() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+  if (cart.length === 0) {
+    alert('Your cart is empty! Please add some items before checking out.');
+    return;
+  }
+  
+  // Calculate total
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+  });
+  
+  // Create order summary
+  let orderSummary = "Order Summary:\n\n";
+  cart.forEach(item => {
+    orderSummary += `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}\n`;
+  });
+  orderSummary += `\nTotal: $${total.toFixed(2)}`;
+  
+  // Get customer information
+  const customerName = prompt("Please enter your name for the order:");
+  if (!customerName) {
+    alert("Order cancelled. Name is required.");
+    return;
+  }
+  
+  const customerAddress = prompt("Please enter your delivery address:");
+  if (!customerAddress) {
+    alert("Order cancelled. Address is required.");
+    return;
+  }
+  
+  const customerPhone = prompt("Please enter your phone number:");
+  if (!customerPhone) {
+    alert("Order cancelled. Phone number is required.");
+    return;
+  }
+  
+  // Confirm order
+  const confirmOrder = confirm(
+    `Please confirm your order:\n\n${orderSummary}\n\n` +
+    `Delivery to: ${customerName}\n` +
+    `Address: ${customerAddress}\n` +
+    `Phone: ${customerPhone}\n\n` +
+    `Click OK to place your order.`
+  );
+  
+  if (confirmOrder) {
+    // Generate order number
+    const orderNumber = 'RH' + Math.floor(1000 + Math.random() * 9000);
+    
+    // Create order object
+    const order = {
+      orderNumber: orderNumber,
+      items: cart,
+      customerInfo: {
+        name: customerName,
+        address: customerAddress,
+        phone: customerPhone
+      },
+      total: total,
+      timestamp: new Date().toISOString()
+    };
+    
+    // Save order to localStorage (for order history)
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    
+    // Clear cart
+    localStorage.setItem("cart", JSON.stringify([]));
+    
+    // Show success message
+    alert(
+      `🎉 Order Confirmed!\n\n` +
+      `Thank you for your order, ${customerName}!\n` +
+      `Order #: ${orderNumber}\n` +
+      `Total: $${total.toFixed(2)}\n\n` +
+      `Your delicious ramen will be delivered to:\n${customerAddress}\n\n` +
+      `Estimated delivery time: 25-35 minutes`
+    );
+    
+    // Update cart display
+    renderCart();
+    updateCartCount();
+    
+    // Optional: Redirect to home page after 3 seconds
+    setTimeout(() => {
+      if (confirm("Would you like to return to the home page?")) {
+        window.location.href = "home.html";
+      }
+    }, 1000);
+  } else {
+    alert("Order cancelled.");
+  }
+}
+
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
   console.log("DOM loaded - Initializing cart");
   updateCartCount();
   
-  // If we're on the cart page, render the cart
+  // If we're on the cart page, render the cart and setup checkout
   if (document.getElementById('cart-items')) {
     console.log("Cart page detected - Rendering cart");
     renderCart();
@@ -223,12 +322,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listeners for cart buttons
     const clearCartBtn = document.getElementById('clear-cart');
     const refreshCartBtn = document.getElementById('refresh-cart');
+    const checkoutBtn = document.getElementById('checkout-btn');
     
     if (clearCartBtn) {
       clearCartBtn.addEventListener('click', clearCart);
     }
     if (refreshCartBtn) {
       refreshCartBtn.addEventListener('click', renderCart);
+    }
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', checkout);
     }
   }
   
