@@ -4,7 +4,7 @@
 const products = [
   { id: 1, name: "Classic Shoyu Ramen", price: 12, img: "https://img.freepik.com/premium-photo/top-down-shot-classic-bowl-shoyu-ramen-white-background_975188-71959.jpg", desc: "A soy-based broth with rich umami flavor and tender noodles." },
   { id: 2, name: "Spicy Miso Ramen", price: 14, img: "https://dishingouthealth.com/wp-content/uploads/2022/01/SpicyMisoRamen_Square.jpg", desc: "A hearty, spicy broth that warms your soul with each bite." },
-  { id: 3, name: "Tonkotsu Ramen", price: 15, img: "https://1.bp.blogspot.com/-gv6ye0TV1rQ/X3ys7dH30vI/AAAAAAABcJo/pnZ1xx4LdxwCkcO-ICJHoOc1Nn8e0_fIwCLcBGAsYHQ/s1920/tonkotsu-ramen.jpg", desc: "Rich and creamy pork broth simmered for 12 hours." },
+  { id: 3, name: "Tonkotsu Ramen", price: 15, img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpWq2pIeU_lcRk7ypPQU9Na-5ypZCTO0_Ga4RACZTqHWov7Y7NyL1ZbtmstRwvcPwgnFZ0_00rOv7XdhHbQCZN7TVkkSFgMljj9MoyYcumA6SyEAN-0gRXYZSCOtER8aG2i9lsGMj0SuiI/s660/tonkotsu-ramen.jpg", desc: "Rich and creamy pork broth simmered for 12 hours." },
   { id: 4, name: "Shio Ramen", price: 13, img: "https://www.chopstickchronicles.com/wp-content/uploads/2017/11/Shio-Ramen-10-e1666179173996.jpg", desc: "Light, clear sea salt broth with delicate chicken flavors." }
 ];
 
