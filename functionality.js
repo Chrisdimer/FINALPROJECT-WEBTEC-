@@ -1,9 +1,14 @@
 // Products data
 const products = [
-  { id: 1, name: "Classic Shoyu Ramen", price: 12, img: "https://img.freepik.com/premium-photo/top-down-shot-classic-bowl-shoyu-ramen-white-background_975188-71959.jpg", desc: "A soy-based broth with rich umami flavor and tender noodles." },
-  { id: 2, name: "Spicy Miso Ramen", price: 14, img: "https://dishingouthealth.com/wp-content/uploads/2022/01/SpicyMisoRamen_Square.jpg", desc: "A hearty, spicy broth that warms your soul with each bite." },
-  { id: 3, name: "Tonkotsu Ramen", price: 15, img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpWq2pIeU_lcRk7ypPQU9Na-5ypZCTO0_Ga4RACZTqHWov7Y7NyL1ZbtmstRwvcPwgnFZ0_00rOv7XdhHbQCZN7TVkkSFgMljj9MoyYcumA6SyEAN-0gRXYZSCOtER8aG2i9lsGMj0SuiI/s660/tonkotsu-ramen.jpg", desc: "Rich and creamy pork broth simmered for 12 hours." },
-  { id: 4, name: "Shio Ramen", price: 13, img: "https://www.chopstickchronicles.com/wp-content/uploads/2017/11/Shio-Ramen-10-e1666179173996.jpg", desc: "Light, clear sea salt broth with delicate chicken flavors." }
+ 
+  { id: 1, name: "Classic Shoyu Ramen", price: 15, img : "image/classic shoyo.jpg", desc: "A soy-based broth with rich umami flavor and tender noodles." },
+  { id: 2, name: "Spicy Miso Ramen", price: 16, img: "image/Spicy Ramen.jpg", desc: "A hearty, spicy broth that warms your soul with each bite." },
+  { id: 3, name: "Tonkotsu Ramen", price: 15, img: "image/tonkotsu ramen.jpg", desc: "Rich and creamy pork broth simmered for 12 hours." },
+  { id: 4, name: "Shio Ramen", price: 15, img: "image/shio ramen.jpg", desc: "Light, clear sea salt broth with delicate chicken flavors." },
+  { id: 5, name: "Chuka Soba Ramen", price: 14, img: "image/chuka soba.jpg", desc: "Classic Japanese-style ramen with springy wheat noodles in a light soy-based broth, garnished with green onions, bamboo shoots, and perfectly cooked slices of pork for a simple, comforting flavor." },
+  { id: 6, name: "Hiroshima Ramen ", price: 16, img: "image/hiroshima ramen.png", desc: "A rich and savory noodle soup with a flavorful pork broth, topped with fresh vegetables, tender slices of pork, and a hint of garlic oil for an authentic Hiroshima taste." },
+  { id: 7, name: "Curry Ramen", price: 15, img: "image/curry ramen.png", desc: "Savory Japanese curry broth with noodles and tender toppings, mildly spicy and comforting." },
+  { id: 8, name: "Seafood Ramen", price: 17, img: "image/sea food ramen.jpg", desc: "Light broth with fresh seafood like shrimp, squid, and fish, topped with green onions." }
 ];
 
 // Function to display products on the page (products.html)
